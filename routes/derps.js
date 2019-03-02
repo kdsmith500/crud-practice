@@ -3,7 +3,6 @@ var router = express.Router();
 var derpsCtrl = require('../controllers/derps');
 
 router.get('/', derpsCtrl.index);
-router.get('/:id/edit', derpsCtrl.edit);
 router.get('/:id', derpsCtrl.show);
 router.post('/', derpsCtrl.create);
 router.delete('/:id', derpsCtrl.remove);

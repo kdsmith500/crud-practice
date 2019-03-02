@@ -5,7 +5,6 @@ module.exports = {
     show,
     create,
     remove,
-    edit,
     update
 };
 
@@ -28,26 +27,19 @@ function show(req, res) {
 }
 
 function create(req, res) {
-    console.log("CREATE");
-    Derp.create(req.body, function(err, derp) {
-        console.log(derp);
+    var derp = new Derp(req.body);
+    console.log(derp);
+    derp.save(function(err) {
+    // Derp.create(req.body, function(err, derp) {
+        // console.log(derp, "AND THE", req.body);
         if (err) return res.redirect('derps');
-        res.rediret(`derps/${derp._id}`);
+        res.rediret(`derp/${derp._id}`);
     });
 }
 
 function remove(req, res) {
     Derp.findOneAndRemove({'_id': req.params.id}, function(err, threads) {
         res.redirect('/derps');
-    });
-}
-
-function edit(req, res) {
-    Derp.findById(req.params.id, function(err, derp) {
-        res.render('derps/edit', {
-            derp,
-            title: 'Edit Derp'
-        });
     });
 }
 

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/stylesheets/style.css">
     <title><%= title %></title>
 </head>
 <body>
@@ -28,16 +29,16 @@
     <% }); %>
     </tbody>
     </table>
-    <section class="index-flex-column">
+    <section class="index-new-form">
         <h2>Enter new derp information.</h2>
         <form class="new-form" action="/derps" method="POST">
           <label class="new-stuff">Stuff:
-            <input class="new-input-stuff" name="stuff">
+            <input class="new-input-stuff" type="text" name="stuff">
           </label>
           <label class="new-things">Things:
             <input class="new-input-things" type="number" name="things">
           </label>
-          <label class="new-otherstuff">Airport:
+          <label class="new-otherstuff">Other Stuff:
             <select class="new-input-otherstuff" name="otherstuff">
                 <option value="True">True</option>
                 <option value="False">False</option>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <title><%= title %></title>
+</head>
+<body>
+    <h1><%= title %></h1>
+    <table>
+    <thead>
+        <tr>
+            <th></th>
+            <th>Stuff</th>
+            <th>Things</th>
+            <th>Other Stuff</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="t-derps">
+            <td class="td-stuff"><%= derp.stuff %></td>
+            <td class="td-things"><%= derp.things %></td>
+            <td class="td-otherstuff"><%= derp.otherstuff %></td>
+        </tr>
+        <form method="POST" action="/derps/<%= derp._id %>?_method=DELETE">
+            <button class="new-button" type="submit">DELETE</button>
+        </form>
+
+    </tbody>
+    </table>
+    <section class="edit-form">
+        <h2>Update derp information.</h2>
+        <form class="new-form" action="/derp/<%= derp._id %>?_method=PUT" method="POST">
+            <label class="new-stuff">Stuff:
+            <input class="new-input-stuff" type="text" name="stuff">
+            </label>
+            <label class="new-things">Things:
+            <input class="new-input-things" type="number" name="things">
+            </label>
+            <label class="new-otherstuff">Other Stuff:
+            <select class="new-input-otherstuff" name="otherstuff">
+                <option value="True">True</option>
+                <option value="False">False</option>
+            </select>
+            </label>
+            <button class="new-button" type="submit">Add</button>
+        </form>
+    </section> 
+</body>
+</html>
