@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= title %></title>
+</head>
+<body>
+    <h1><%= title %></h1>
+    <table>
+    <thead>
+        <tr>
+            <th></th>
+            <th>Stuff</th>
+            <th>Things</th>
+            <th>Other Stuff</th>
+        </tr>
+    </thead>
+    <tbody>
+    <% derps.forEach(function(d) { %>
+        <tr class="t-derps">
+            <td><a class="details-link" href="/derps/<%= d._id %>">DETAILS</a></td>
+            <td class="td-stuff"><%= d.stuff %></td>
+            <td class="td-things"><%= d.things %></td>
+            <td class="td-otherstuff"><%= d.otherstuff %></td>
+        </tr>
+    <% }); %>
+    </tbody>
+    </table>
+    <section class="index-flex-column">
+        <h2>Enter new derp information.</h2>
+        <form class="new-form" action="/derps" method="POST">
+          <label class="new-stuff">Stuff:
+            <input class="new-input-stuff" name="stuff">
+          </label>
+          <label class="new-things">Things:
+            <input class="new-input-things" type="number" name="things">
+          </label>
+          <label class="new-otherstuff">Airport:
+            <select class="new-input-otherstuff" name="otherstuff">
+                <option value="True">True</option>
+                <option value="False">False</option>
+            </select>
+          </label>
+          <button class="new-button" type="submit">Add</button>
+        </form>
+    </section>
+</html>
+</body>
+</html>
